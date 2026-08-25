@@ -1,16 +1,14 @@
 ﻿# 📱 E-Commerce App — Project Overview
 
-Welcome to the **E-Commerce App** — a Flutter-based mobile application built to browse, search, and explore products fetched from a real API, with full offline support baked right in.
+Welcome to the **E-Commerce App** - a Flutter based mobile application built to browse, search, and explore products fetched from a real API, with full offline support baked right in.
 
-This document gives you a bird's-eye view of what the app does, how it's structured, and the key decisions made during development.
+This document gives you detailed view of what the app does, how it's structured, and the key decisions made during development.
 
 ---
 
 ## What is this app?
 
-This is a clean, feature-focused e-commerce mobile app built with Flutter. It talks to the [DummyJSON](https://dummyjson.com) products API to load real product data, stores it locally in SQLite so the app still works without internet, and lets users search, browse, and favorite products — all with a smooth, reactive UI.
-
-Think of it as a solid foundation you can build a full shopping experience on top of.
+This is a clean e-commerce mobile app built with Flutter. It talks to the [Products API](https://dummyjson.com) to load product data, stores it locally in SQLite so the app still works without internet and user can able to do search and favorite products functionality with a smooth, reactive UI.
 
 ---
 
@@ -18,10 +16,10 @@ Think of it as a solid foundation you can build a full shopping experience on to
 
 Here's a quick rundown of what's working:
 
-- 🚀 **Splash Screen** — Shows your app logo and a loading spinner while the app initializes, then automatically takes the user to login after 5 seconds.
-- 🔐 **Login Screen** — A clean login form with email validation, a password visibility toggle, and form state management.
-- 📦 **Product List** — Loads products from the API with pagination (10 at a time), lets you search by name or category, mark favorites, and pull to refresh. If you're offline, it gracefully falls back to locally cached data.
-- 🔍 **Product Detail** — A full detail view for any product, showing its image, price, description, category, and stock — plus a favorite toggle right in the app bar.
+**Splash Screen** - Shows your app logo and a loading spinner while the app initializes, then automatically takes the user to login after 5 seconds.
+**Login Screen** - A clean login form with email validation, a password visibility toggle and form state management.
+**Product List** - Loads products from the API with pagination (10 at a time) you search by name or category, mark as favorites and pull to refresh. If you are offline it gracefully falls back to locally cached data.
+**Product Detail** - A full detail view for any product, showing its image, price, description, category and stock. plus a favorite toggle right in the app bar.
 
 ---
 
@@ -73,7 +71,7 @@ lib/
 │   ├── common_textfieldstyle.dart
 │   └── common_functions.dart
 │
-└── utils/                           # App-wide constants (colors, images)
+└── utils/                           # App wide constants (colors, images)
     ├── colors.dart
     └── images.dart
 ```
@@ -82,11 +80,11 @@ lib/
 
 ## Architecture Pattern
 
-The app follows a **feature-first architecture** using **GetX** for state management and routing.
+The app follows a **feature first architecture** using **GetX** for state management and routing.
 
-Each feature lives in its own folder with:
-- A **Screen** — the UI, what the user sees
-- A **Controller** — the logic, what happens when things are tapped
+Each feature in folder with:
+- A **Screen** - the UI, what the user sees
+- A **Controller** - the logic, what happens when things are tapped
 
 This makes it really easy to find things and extend the app without touching unrelated parts.
 
@@ -110,7 +108,7 @@ API (dummyjson.com)
   ProductListScreen (UI)
 ```
 
-The app always fetches fresh data from the API **and** caches it to SQLite. When displaying, it reads from the local database — so even if the internet goes away mid-session, things keep working.
+The app always fetches fresh data from the API **and** caches it to SQLite. When displaying, it reads from the local database - so even if the internet goes away mid-session, things keep working.
 
 ---
 
